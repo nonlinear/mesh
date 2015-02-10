@@ -1,0 +1,579 @@
+@font-face {
+  font-family: 'multicolore_regular';
+  src: url('../fonts/multicolore-webfont.eot');
+  src: url('../fonts/multicolore-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/multicolore-webfont.woff') format('woff'),
+  url('../fonts/multicolore-webfont.ttf') format('truetype'),
+  url('../fonts/multicolore-webfont.svg#multicolore_regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+$conversation-width: ($ipad-all - $iphone-portrait - 2);
+h1, h2, h3, h4 {
+  font-family: $f1;
+}
+body {
+  font-family: $f2;
+  background-image: url(../images/bg_proto.gif);
+}
+p {
+  font-size: 15px;
+  line-height: 18px;
+}
+body:not(.proto) .container {
+  margin: 0 auto;
+  background-color: $c0;
+  color: $c1;
+  padding: 0px;
+}
+body.iphone {
+  .container {
+    width: $iphone-portrait;
+    height: $iphone-5;
+  }
+  .mainmenu {
+    .panel-body {
+      height: ($iphone-5 - (50px * 3) - 30px);
+    }
+    .panel:last-of-type .panel-body {
+     height: ($iphone-5 - (50px * 3) - 50px);
+   }
+ }
+ .conversation {
+  .history {
+    height: ($iphone-5 - $input);
+    .output {
+      width: ($iphone-portrait - $avatar_mini - $g3);
+    }
+    .input {
+      width: $iphone-portrait;
+      & > ul {
+        width: ($iphone-portrait + ($input * 3));
+        a.large {
+          width: ($iphone-portrait - ($input * 2));
+        }
+      }
+    }
+  }
+}
+#contacts .grid {
+  height: ($iphone-5 - 228) ;
+}
+&.phase1 {
+  #contacts .grid {
+    height: ($iphone-5 - 150) ;
+
+  }
+  .mainmenu  .panel-body {
+    height: ($iphone-5 - 97) !important;
+
+
+  }
+
+
+}
+#neighborhood, #camera {
+  &.panel-collapse.in {
+    height: ($iphone-5 - 180) !important;
+    @include transition;
+  }
+}
+}
+body.ipad {
+  .container {
+    width: $ipad-all;
+    height: $ipad-portrait;
+    display: table;
+  }
+  .mainmenu, .conversation {
+    display: inline-table;
+    vertical-align: top;
+  }
+  .mainmenu {
+    .panel-body {
+      height: ($ipad-portrait - (50px * 3) - 30px);
+    }
+    .panel:last-of-type .panel-body {
+     height: ($ipad-portrait - (50px * 3) - 50px);
+   }
+ }
+ .conversation {
+  border-left: dashed 2px $c1;
+  width: $conversation-width;
+  .history {
+    height: ($ipad-portrait - $input);
+    .talk {
+      width: 400px;
+      margin: 0 auto;
+    }
+    .output {
+      width: (400px - $avatar_mini - $g3);
+    }
+  }
+  .input {
+    & > ul {
+      a.large {
+        width: 450px;     
+      }
+    }
+  }
+  
+}
+#contacts .grid {
+  height: ($ipad-portrait - 228);
+}
+#neighborhood, #camera {
+  &.panel-collapse.in {
+    height: ($ipad-portrait - 180) !important;
+    @include transition;
+  }
+}
+}
+.mainmenu {
+  margin: 0px !important;
+  padding: 15px 30px;
+  width: $iphone-portrait;
+  .panel-body {
+    padding: 0px;
+    margin: 0px;
+    overflow: none;
+  }
+  .panel {
+    border: none !important;
+    @include radius(0px);
+    margin: 0px !important;
+    background: none !important;
+    @include shadow(none);
+    &:not(:first-child) > a[data-toggle="collapse"] {
+      border-top: solid 1px $c1;
+    }
+    & > a[data-toggle="collapse"] {
+      @extend %border-box;
+      padding: 6px;
+      font-family: $f1;
+      color: $c1;
+      text-align: center;
+      display: block;
+      height: 50px;
+      font-size: 25px;
+      &:hover {
+        text-decoration: none;
+      } 
+    }
+  }
+}
+a.avatar {
+  &:hover {
+    color: $c1;
+    text-decoration: none;
+    @include scale(.95);
+  }
+}
+.avatar {
+  width: $avatar;
+  text-align: center;
+  font-family: $f1;
+  @include ellipsis;
+  display: inline-block;
+  @extend %border-box;
+  color: $c1;
+  margin-bottom: 7px;
+  .face {
+    displaY: block;
+    @include radius(100%);
+    border: solid $avatar_border $c1;
+    width: $avatar;
+    height: $avatar;
+    background-size: 100% 100%;
+  }
+  .name {
+    @include ellipsis;
+    width: $avatar;
+    displaY: block;
+  }
+  .status {
+    color: white;
+    width: 0; 
+    height: 0; 
+    margin: ($avatar_border * -1) ($avatar_border * -1) 0 0;
+    float: right;
+    border-top: $status solid $c1;
+    border-bottom: $status solid transparent;
+    border-left: $status solid transparent;
+    border-right: $status solid $c1;
+    font-size: 15px;
+    span {
+      top: -30px;
+      width: $status; 
+      heighT: $status;
+      display: block;
+      margin-top: ($status * -1);
+      text-align: right;
+      padding-right: 3px;
+      i {
+        line-height: 25px;
+
+      }
+    }
+  }
+  &.mini {
+    width: $avatar_mini;
+    .face {
+      width: $avatar_mini;
+      height: $avatar_mini;
+    }
+  }
+}
+.grid {
+  overflow: auto;
+  @include scroll-hint;
+  .avatar {
+    &:nth-of-type(3n) {
+
+    }
+    &:nth-of-type(3n-1) {
+      margin: 0px 5px;  
+    }
+  }
+}
+
+.flexslider {
+  h1, h2, h3 {
+    text-align: center;
+    margin-top: 0px;
+    @include translate(0, -5);
+    margin-bottom: 22px;
+  }
+  .flex-control-nav {
+    position: absolute;
+    height: 20px;
+    li {
+      margin: 0px;
+      margin-left: 3px;
+      &:first-of-type {
+        margin-left: 0px;
+      }
+    }
+    a {
+      @include radius(0px);
+      border-top: solid 1px $c1;
+      background: none;
+      @include shadow(none);
+      height: 10px;
+      &.flex-active {
+        border-top-width: 10px;
+        background: none;
+      }
+      &:hover:not(.flex-active) {
+        border-top-width: 7px;
+        background: none;
+      }
+    }
+  }
+  .flex-direction-nav {
+   position: absolute;
+   width: 100%;
+   a {
+    text-indent: 0px;
+    font-family: 'mesh';
+    color: $c1;
+    font-size: 20px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+}
+.touch {
+  .flex-direction-nav {
+    display: none;
+  }
+}
+#contacts {
+  .flexslider {
+    .flex-direction-nav {
+     top: 10px;
+   }
+   .flex-control-nav {
+    top: 23px;
+    a {
+      width: 84px;
+    }
+  }
+}
+}
+.talk {
+  @extend %clearfix;
+  padding: 10px;
+  padding-bottom: 0px;
+  .avatar, .output {
+    @extend %border-box;
+  }
+  .output {
+    min-height: ($avatar_mini + $g2);
+    .sig {
+      font-size: 11px;
+      margin-bottom: 0px;
+      margin-top: 5px;
+      line-height: 11px;
+      color: $c1l2;
+    }
+  }
+  .avatar {
+    @extend .mini;
+    color: $c1l1;
+    .face {
+      border-color: $c1l1;
+    }
+  }
+  &.other {
+    background-position: 65px 40px;
+    .avatar {
+      float:left;
+      .face {
+        background-image: url(../../partials/proto/face/63.jpg);
+      }
+    }
+    .output {
+      float: right;
+      padding-left: $g1;
+      @include arrow(left);
+    }
+  }
+  &.self {
+    background-position: ($iphone-portrait - $avatar_mini - $g2) 40px;
+    .avatar {
+      float:right;
+      
+      .face {
+        background-image: url(../../partials/proto/face/7.jpg);
+      }
+    }
+    .output {
+      float: left;
+      padding-right: $g1;
+      @include arrow(right);
+      text-align: right;
+    }
+  }
+
+  &.video .title:before {
+    content: "o";
+  }
+  &.audio .title:before {
+    content: "p";
+  }
+  &.file .title:before {
+    content: "i";
+  }
+  &.picture .title:before {
+    content: "q";
+  }
+  &.video, &.audio, &.file, &.picture {
+    .output {
+      background-color: $c1l2;
+      color: white;
+      padding: 5px $g1;
+      min-height: 0px !important;
+      .title {
+        font-family: $f1;
+        line-height: 16px;
+        margin-bottom: 0px;
+        &:before {
+          float: left;
+          width: 40px;
+          height: 30px;
+          margin-top: 15px;
+          font-size: 35px;
+          font-family: $f3;
+          margin-right: 5px;
+        }
+      }
+      .sig {
+        color: white;
+        padding-left: 35px;
+        margin-top: none !important;
+
+      }
+      &:hover {
+        background-color: $c1;
+        text-decoration: none;
+      }
+    }
+    &.other .output {
+      @include arrow(left, $bgcolor: $c1l2);
+      &:hover {
+        @include arrow(left, $bgcolor: $c1);
+      }
+    }
+    &.self .output {
+      text-align: left;
+      @include arrow(right, $bgcolor: $c1l2);
+      &:hover {
+        @include arrow(right, $bgcolor: $c1);
+      }
+    }
+  }
+}
+.conversation {
+  .history {
+    @include scroll-hint;
+    &.off {
+      overflow: auto;
+    }
+  }
+  .input {
+    &.off {
+      height: $input;
+      overflow: auto;
+      vertical-align: top;
+      @include scroll-hint;
+      & > ul {
+        @extend %navlist;
+        display: table;
+        li {
+          background-color: $c2;
+          display: table-cell;
+          &:first-of-type {
+            background-color: $c2l3;
+          }
+          &:nth-of-type(2), 
+          &:nth-of-type(6) {
+            background-color: $c2l2;
+          }
+          &:nth-of-type(3), 
+          &:nth-of-type(5) {
+            background-color: $c2l1;
+          }
+        }
+      }
+      a {
+        height: $input;
+        width: $input;
+        display: inline-block;
+        text-align: center;
+        padding-top: 10px;
+        color: $c1;
+        i {
+          font-size: 25px;
+          @include transition;
+
+        }
+        &:hover {
+          text-decoration: none;
+     
+        }
+
+      }
+    }
+  }
+
+}
+.request {
+  .talk {
+    padding: 0px;
+    @extend .other;
+    display: table;
+    width: 100%;
+    &:not(:first-of-type) {
+     border-top: solid 1px $c1l2;
+     margin-top: $g1;
+     padding-top: $g1;
+   }
+   .avatar, .output, actions {
+     display: table-cell;
+     vertical-align: top;
+     float: none;
+   }
+   .avatar {
+     padding-right: 15px; 
+     .face {
+      background: none;
+    }
+    .name {
+     @include ellipsis;
+     width: $avatar-mini;
+   }
+ }
+ .actions {
+   .btn {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+}
+.output {
+  font-size: 90%;
+  line-height: 105%;
+  padding-right: $g1;
+  width: 100%;
+}
+}
+.btn-block {
+  margin-top: $g1;
+}
+}
+
+.btn, .btn-group .btn {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius:    0 !important;
+  border-radius:         0 !important;
+  background-color: $c1;
+  color: white;
+  border-width: 0;
+  padding: 10px;
+  min-height: 40px;
+  font-family: $f1;
+  font-size: 15px;
+  vertical-align: middle;
+  &:hover {
+    background-color: $c1l2;
+    color: $c0;
+  }
+  i {
+    font-size: 25px;
+    @include reset;
+  }
+}
+.btn-group-vertical {
+  .btn:not(:first-of-type) {
+    border-top: solid 1px $c0;
+  }
+}
+
+.flexslider, .conversation .history {
+  @include animate(fadeup, 500ms);
+}
+
+.about {
+   color: $c1;
+  font-size: 80px;
+  float: right;
+  position: absolute;
+  @include translate(240, -7); 
+  float: right;
+  overflow: hidden;
+   &:hover {
+   color: $c1l2;
+  text-decoration: none;
+  }
+}
+.conversation .about {
+   
+  font-size: 40px;
+  @include translate(280, -5); 
+
+}
+
+.phase1 .input {
+  z-index: 1000;
+
+ a {
+
+  width: 100% !important;
+&:hover {
+    background-color: $c2l1;
+  }
+ }  
+}
+

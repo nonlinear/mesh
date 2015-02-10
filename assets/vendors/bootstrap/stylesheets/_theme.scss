@@ -1,0 +1,408 @@
+//@mixin theme(
+//  $bg: red,
+//  $subtitle: red,
+//  $button: red,
+//  $color3: red,
+//  $title: red,
+//  $color5: red,
+//  $accent: red,
+//  $invert: no,
+//  $contrast: 50%
+//  ) {
+//  body {
+//    @if $invert == no {
+//      background-color: lighten($bg, $contrast);
+//    } 
+//    @else {
+//      background-color: darken($bg, $contrast);
+//    }
+//  }
+//  .ui.button {
+//    background-color: $bg;
+//    border: solid 1px darken($bg, 10%);
+//    color: $accent;
+//    a {
+//      color: $accent;
+//    }
+//    &:hover {
+//      @if $invert == no {
+//        background-color: lighten($bg, 10%);
+//      } 
+//      @else {
+//        background-color: darken($bg, 10%);
+//      }
+//    }
+//  }
+//
+//  [placeholder]::-webkit-input-placeholder, .venuesearch .icon {
+//    @if $invert == no {
+//      color: lighten($bg, ($contrast * 4));
+//    } 
+//    @else {
+//      color: darken($bg, ($contrast * 4));
+//    }
+//  }
+//  header.header {
+//    background-color: $bg;
+//    #storefrontLogo .te.xl {
+//      color: $accent;
+//    }
+//    .venuesearch {
+//      @if $invert == no {
+//        background-color: lighten($bg, ($contrast * 2));
+//      } 
+//      @else {
+//        background-color: darken($bg, ($contrast * 2));
+//      }
+//
+//      color: $bg;
+//      .icon {
+//        @if $invert == no {
+//          border-right: solid 1px lighten($bg, ($contrast * 4));
+//        } 
+//        @else {
+//          border-right: solid 1px darken($bg, ($contrast * 4));
+//        }
+//      }
+//    }
+//  }
+//  nav.category {
+//    @if $invert == no {
+//      border-top-color: lighten($bg, ($contrast * 2));
+//    } 
+//    @else {
+//      border-top-color: darken($bg, ($contrast * 2));
+//    }
+//    background-color: $bg;
+//    .dropdown {
+//      .dropdown-toggle {
+//        @if $invert == no {
+//          border-right-color: lighten($bg, ($contrast * 2));
+//        } 
+//        @else {
+//          border-right-color: darken($bg, ($contrast * 2));
+//        }
+//        color: $accent;
+//        &:hover {
+//          @if $invert == no {
+//            background-color: lighten($bg, ($contrast * 2));
+//          } 
+//          @else {
+//            background-color: darken($bg, ($contrast * 2));
+//          }
+//        }
+//      }
+//    }
+//  }
+//  ul.tabnav {
+//    background-color: $bg;
+//    li.item:not(.active) a {
+//      color: $accent;
+//      &:hover {
+//        @if $invert == no {
+//          background-color: lighten($bg, ($contrast * 2));
+//        } 
+//        @else {
+//          background-color: darken($bg, ($contrast * 2));
+//        }
+//      }
+//    }
+//  }
+//  .storefront footer.footer .row {
+//    background-color: $bg;
+//  }
+//  header.header a.cart .icon {
+//    color: $button;
+//    &:hover {
+//      @if $invert == no {
+//        color: lighten($button, $contrast) !important;
+//      } 
+//      @else {
+//        color: darken($button, $contrast) !important;
+//      }
+//    }
+//  }
+//  .dropdown {
+//    .dropdown-menu {
+//      background: $bg;
+//      li {
+//        @if $invert == no {
+//          border-bottom: solid 1px lighten($bg, ($contrast * 2));
+//        } 
+//        @else {
+//          border-bottom: solid 1px darken($bg, ($contrast * 2));
+//        }
+//        a {
+//          background-color: $bg;
+//          color: $accent;
+//          &:hover {
+//            color: $accent;
+//            @if $invert == no {
+//              background-color: lighten($bg, ($contrast * 2));
+//            } 
+//            @else {
+//              background-color: darken($bg, ($contrast * 2));
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//  footer {
+//    background-color: $subtitle;
+//    color: $button;
+//    a {
+//      color: $title;
+//    }
+//  }
+//  .color1-bg {
+//    background-color: $subtitle !important;
+//  }
+//  .color1 {
+//    color: $subtitle !important;
+//    &.button {
+//      background-color: $subtitle;
+//      color: $button !important;
+//      &:hover {
+//        @if $invert == no {
+//          background-color: lighten($subtitle, $contrast);
+//        } 
+//        @else {
+//          background-color: darken($subtitle, $contrast);
+//        }
+//      }
+//      &:active {
+//        @if $invert == no {
+//          background-color: darken($subtitle, $contrast);
+//        } 
+//        @else {
+//          background-color: lighten($subtitle, $contrast);
+//        }
+//      }
+//    }
+//  }
+//
+//  .color2-bg {
+//    background-color: $button !important;
+//  }
+//
+//  .color2 {
+//    color: $button !important;
+//    &.button {
+//      background-color: $button;
+//      color: $subtitle !important;
+//      &:hover {
+//        background-color: lighten($button, $contrast);
+//      }
+//      &:active {
+//        background-color: darken($button, $contrast);
+//      }
+//    }
+//  }
+//
+//  .color3-bg {
+//    background-color: $color3 !important;
+//  }
+//
+//  .color3 {
+//    color: $color3 !important;
+//    &.button {
+//      background-color: $color3;
+//      color: $subtitle !important;
+//      &:hover {
+//        background-color: lighten($color3, $contrast);
+//      }
+//      &:active {
+//        background-color: darken($color3, $contrast);
+//      }
+//    }
+//  }
+//
+//  .color4-bg {
+//    background-color: $title !important;
+//  }
+//
+//  .color4 {
+//    color: $title !important;
+//    &.button {
+//      background-color: $title;
+//      &:hover {
+//        background-color: lighten($title, $contrast);
+//      }
+//      &:active {
+//        background-color: darken($title, $contrast);
+//      }
+//    }
+//  }
+//  .color5-bg {
+//    background-color: $color5 !important;
+//  }
+//  .color5 {
+//    color: $color5 !important;
+//    &.button {
+//      background-color: $color5;
+//      color: $accent !important;
+//      &:hover {
+//        background-color: lighten($color5, $contrast);
+//      }
+//      &:active {
+//        background-color: darken($color5, $contrast);
+//      }
+//    }
+//  }
+//}
+//html {
+//  &.theme_teamusa {
+//    @include theme(
+//      $bg: #22303f,
+//      $subtitle: #22303f,
+//      $button: #557da7,
+//      $color3: #ecebee,
+//      $title: #db0d2a,
+//      $color5: #820705,
+//      $accent: white,
+//      $invert: no,
+//      $contrast: 10%
+//      )
+//  }
+//  &.theme_lions {
+//    @include theme(
+//      $bg: #22303f,
+//      $subtitle: #2E89A7,
+//      $button: #bcbcbc,
+//      $color3: #e9e9e9,
+//      $title: #FD802B,
+//      $color5: #424242,
+//      $accent: white,
+//      $invert: no,
+//      $contrast: 10%
+//      )
+//  }
+//  &.theme_default {
+//    @include theme(
+//      $bg: #22303f,
+//      $subtitle: #556270,
+//      $button: lighten(#22303f, 30%),
+//      $color3: #C7F464,
+//      $title: #FF6B6B,
+//      $color5: #C44D58,
+//      $accent: white,
+//      $invert: no,
+//      $contrast: 10%
+//      )
+//  }
+//  &.theme_light {
+//    @include theme(
+//      $bg: #eee,
+//      $subtitle: #556270,
+//      $button: darken(yellow, 30%),
+//      $color3: #C7F464,
+//      $title: darken(yellow, 30%),
+//      $color5: #C44D58,
+//      $accent: darken(yellow, 30%),
+//      $invert: yes,
+//      $contrast: 10%
+//      )
+//  }
+//  &.theme_transparent {
+//    @include theme(
+//      $bg: #fff,
+//      $subtitle: #505B68,
+//      $button: #6E8CAD,
+//      $color3: #C7F464,
+//      $title: #FC4D5A,
+//      $color5: #C44D58,
+//      $accent: #5D5D5D,
+//      $invert: yes,
+//      $contrast: 5%
+//      );
+//    body {
+//      background-color: white;
+//    }
+//    .background {
+//      background-size: auto auto !important;
+//      background-repeat: no-repeat !important;
+//      background-position: top left !important;
+//      position: absolute;
+//    }
+//    .ui.button {
+//      background-color: #5BC3EC;
+//      border: solid 1px darken(#5BC3EC, 10%);
+//      color: white; 
+//      a {
+//        color: white;
+//      }
+//      &:hover {
+//        background-color: lighten(#5BC3EC, 10%);
+//      }
+//    }
+//    ul.tabnav {
+//      background-color: #19232F;
+//
+//      li.item {
+//        &.active a:hover {
+//          background-color: white !important;
+//        }
+//        &:not(.active) a {
+//          color: white;
+//          &:hover {
+//            background-color: lighten(#19232F, 20%);
+//          }
+//        }
+//      }
+//    }
+//    header.header {
+//      background: transparent;
+//      #storefrontLogoImage {
+//        background-size: auto auto !important;
+//        background-position: center center !important;
+//      }
+//    }
+//  }
+//  &.theme_store1 {
+//    @include theme(
+//      $bg: #fff,
+//      $subtitle: #004990,
+//      $button: #f78f1e,
+//      $color3: #C7F464,
+//      $title: #0089c1,
+//      $color5: #C44D58,
+//      $accent: #004990,
+//      $invert: yes,
+//      $contrast: 5%
+//      );
+//    .ui.button {
+//      background-color: #5BC3EC;
+//      border: solid 1px darken(#5BC3EC, 10%);
+//      color: white; 
+//      a {
+//        color: white;
+//      }
+//      &:hover {
+//        background-color: lighten(#5BC3EC, 10%);
+//      }
+//    }
+//    ul.tabnav {
+//      background-color: #0089c1;
+//
+//      li.item {
+//        &.active a:hover {
+//          background-color: white !important;
+//        }
+//        &:not(.active) a {
+//          color: white;
+//          &:hover {
+//            background-color: lighten(#0089c1, 20%);
+//          }
+//        }
+//      }
+//    }
+//    header.header {
+//      background: transparent;
+//      #storefrontLogoImage {
+//        background-size: auto auto !important;
+//        background-position: center center !important;
+//      }
+//    }
+//  }
+//}

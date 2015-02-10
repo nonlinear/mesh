@@ -1,0 +1,69 @@
+form.adaptative .input, form .input.adaptative {
+	input[type="text"], select {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 100%;
+		height: -webkit-calc(3em + 2px);
+		height: calc(3em + 2px);
+		margin: 0 0 1em;
+		@include radius(0px);
+		padding: 0px 20px;
+		resize: none;
+		outline: none;
+		&:focus + label[placeholder]:before,
+		&:valid + label[placeholder]:before {
+			-webkit-transition-duration: .2s;
+			transition-duration: .2s;
+			-webkit-transform: translate(0, -1.5em) scale(0.9, 0.9);
+			-ms-transform: translate(0, -1.5em) scale(0.9, 0.9);
+			transform: translate(0, -1.5em) scale(0.9, 0.9);
+		}
+		&:invalid + label[placeholder][alt]:before {
+			content: attr(alt);
+		}
+		& + label[placeholder] {
+			display: block;
+			pointer-events: none;
+			line-height: 1em;
+			margin-top: -webkit-calc(-3em - 2px);
+			margin-top: calc(-3em - 2px);
+			margin-bottom: -webkit-calc((3em - 1em) + 2px);
+			margin-bottom: calc((3em - 1em) + 2px);
+		}
+		& + label[placeholder]:before {
+			content: attr(placeholder);
+			display: inline-block;
+			margin-left: 10px;
+			padding: 0 2px;
+			color: #898989;
+			white-space: nowrap;
+			-webkit-transition: 0.3s ease-in-out;
+			transition: 0.3s ease-in-out;
+			background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+			background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+			background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+			-webkit-background-size: 100% 5px;
+			background-size: 100% 5px;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+	}
+	&.mini {
+		input[type="text"], select {
+			margin: 0 0 3px;
+			padding: 0px 10px;
+			heighT: 33px;
+			&:focus + label[placeholder]:before,
+			&:valid + label[placeholder]:before {
+				-webkit-transform: translate(-10px, -15px) scale(0.8, 0.8);
+				-ms-transform: translate(-10px, -15px) scale(0.8, 0.8);
+				transform: translate(-10px, -15px) scale(0.8, 0.8);
+			}
+			& + label[placeholder] {
+				margin-top: -30px;
+			}
+		}
+	}
+}

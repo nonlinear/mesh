@@ -1,0 +1,74 @@
+/* bootstrap fixes */
+
+/*   makes dropdown change on hover */
+.dropdown {
+  &:hover .dropdown-menu {
+    display: block;
+    z-index:21000;
+  }
+}
+.glyphicon, .fa {
+  margin-right: 7px;
+}
+.btn-toolbar .btn .fa {
+  margin-right: 0px;
+}
+a.dropdown-toggle {
+  color: $c1;
+  &:hover {
+    text-decoration: none;
+  }
+  .glyphicon-chevron-down {
+    font-size: 12px !important;
+    color: $c1l4;
+    margin-left: 5px;
+    margin-right: 0px;
+    vertical-align: middle;
+  }
+}
+.tt-dropdown-menu, .dropdown-menu {
+  @include animate(pushdown);
+  border: solid 1px $c1l6;
+  @include shadow($shadow: 0 5px 5px rgba(0,0,0,.1));
+  border-top: none;
+  padding: 0px !important;
+  @include radius-custom(0px, 0px, 5px, 5px);
+  .divider {
+    margin: 0px;
+  }
+  li a {
+    padding: $g1;
+    @include radius-custom(0px, 0px, 5px, 5px);
+  }
+}
+
+/* modal fixes */
+
+.modal {
+  @extend %flat;
+  @extend %device-ready;
+}
+
+body.modal-open .container {
+  @include filter;
+}
+.modal-backdrop {
+  background-color: $c1;
+  @include filter(blur,0);
+
+}
+
+
+%device-ready {
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-footer {
+   margin-top: 0px;
+   border-top: none;
+ }
+ .modal-body {
+  @include scroll-hint;
+  height: ($iphone-5 - 135);
+}
+}

@@ -1,0 +1,83 @@
+[data-icon]:before {
+  font-family: "mesh" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "mesh" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cancel:before {
+  content: "a";
+}
+.icon-ok:before {
+  content: "b";
+}
+.icon-previous:before {
+  content: "c";
+}
+.icon-next:before {
+  content: "d";
+}
+.icon-update:before {
+  content: "f";
+}
+.icon-attention:before {
+  content: "e";
+}
+.icon-camera:before {
+  content: "g";
+}
+.icon-edit:before {
+  content: "h";
+}
+.icon-file:before {
+  content: "i";
+}
+.icon-user:before {
+  content: "j";
+}
+.icon-chart-line:before {
+  content: "k";
+}
+.icon-stats:before {
+  content: "l";
+}
+.icon-plus:before {
+  content: "m";
+}
+.icon-video:before {
+  content: "o";
+}
+.icon-audio:before {
+  content: "p";
+}
+.icon-picture:before {
+  content: "q";
+}
+.icon-time:before {
+  content: "n";
+}
+.icon-info:before {
+  content: "r";
+}
+.icon-serval:before {
+  content: "s";
+}

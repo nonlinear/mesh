@@ -1,0 +1,50 @@
+/* base libraries to get started */
+@import '../vendors/bootstrap/style';
+@import '../vendors/flexslider/style';
+
+/* brand variables */
+
+$f1: "multicolore_regular";
+$f2: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$f3: "mesh";
+$g1: 10px;
+$c0: lighten(yellow, 35%);
+$c1: #44242a;
+$c2: #BDBEC1;
+$c3: #db0d2a;
+$c4: #9A999A;
+$c5: #fff;
+
+/* status colors */
+
+$color_note: #44A95E;
+$color_error: #d95c5c;
+
+/* bootstrap colors intercept */
+
+$brand-primary:         #428bca;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+/* magic numbers */
+
+$avatar: 80px;
+$avatar_mini: 55px;
+$avatar_border: 2px;
+$status: 20px;
+$input: 50px;
+
+@font-face {
+  font-family: "mesh";
+  src:url("../vendors/mesh/fonts/mesh.eot");
+  src:url("../vendors/mesh/fonts/mesh.eot?#iefix") format("embedded-opentype"),
+    url("../vendors/mesh/fonts/mesh.woff") format("woff"),
+    url("../vendors/mesh/fonts/mesh.ttf") format("truetype"),
+    url("../vendors/mesh/fonts/mesh.svg#mesh") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+@import '../vendors/mesh/style';
